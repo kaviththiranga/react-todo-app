@@ -1,0 +1,5 @@
+The file `my-todo-app/server/database.sqlite` is a SQLite database file. It is a binary file that stores the data for the application. It is not a text file and does not contain code that can be written or read like a .js, .json, or .css file.
+
+When you initialize your SQLite database, this file will be automatically created and populated with the necessary tables and data. Therefore, it is not something that you would create or edit manually.
+
+If you're just setting up the project, this file might not exist yet or be empty. In that case, you could say that this file is intentionally left blank until the database is initialized.
