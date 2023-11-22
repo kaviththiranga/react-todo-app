@@ -1,0 +1,10 @@
+apiVersion: core.choreo.dev/v1alpha1
+kind: ComponentConfig
+metadata:
+    name: todo-client
+    projectName: Default Project
+    annotations:
+        componentType: web-app
+spec:
+    build:
+        branch: main
