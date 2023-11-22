@@ -9,13 +9,13 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('/api/todos')
+    fetch(`${process.env.REACT_APP_API_URL}/todos`)
       .then(res => res.json())
       .then(todos => this.setState({ todos }));
   }
 
   addTodo = (title) => {
-    fetch('/api/todos', {
+    fetch(`${process.env.REACT_APP_API_URL}/todos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   deleteTodo = (id) => {
-    fetch(`/api/todos/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/todos/${id}`, {
       method: 'DELETE',
     })
       .then(() => {

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const todosRoutes = require('./routes/todos');
+const sequelize = require('./models/todoModel');
 
 const app = express();
 
@@ -21,8 +22,14 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
+  try {
+    await sequelize.sync({ force: true });
+    console.log('Database synced!');
+  } catch (error) {
+    console.error('Error syncing database:', error);
+  }
 });
 
 module.exports = app;
