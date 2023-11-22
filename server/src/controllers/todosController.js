@@ -52,14 +52,14 @@ class TodosController {
   // Delete a todo
   async delete(req, res) {
     try {
-      const todo = await TodoModel.delete(req.params.id);
+      const todo = await TodoModel.destroy({ where: { id: req.params.id } });
       if (todo) {
         res.status(200).json({ message: 'Todo deleted' });
       } else {
         res.status(404).json({ message: 'Todo not found' });
       }
     } catch (error) {
-      res.status(500).json({ message: 'Error deleting todo' });
+      res.status(500).json({ message: 'Error deleting todo, ' + error?.message });
     }
   }
 }
